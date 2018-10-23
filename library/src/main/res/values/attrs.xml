@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleIconView">
+        <attr name="backgroundFillColor" format="color"/>
+        <attr name="borderRatio" format="float"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="iconDrawable" format="reference"/>
+        <attr name="iconColor" format="color"/>
+        <attr name="iconRatio" format="float"/>
+        <attr name="iconOffsetV" format="float"/>
+        <attr name="iconOffsetH" format="float"/>
+        <attr name="clipToBorder" format="boolean"/>
+    </declare-styleable>
+</resources>
