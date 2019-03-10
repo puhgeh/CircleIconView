@@ -111,14 +111,18 @@ class CircleIconView(context: Context?, attrs: AttributeSet? = null) : View(cont
 
         val radius = size / 2f
         val iconSize : Int = (size * iconRatio).toInt()
-        bitmap = Bitmap.createScaledBitmap(bitmap, iconSize, iconSize, false)
+
+        bitmap?.let {
+            bitmap = Bitmap.createScaledBitmap(it, iconSize, iconSize, false)
+        }
+
         iconFilter = PorterDuffColorFilter(iconColor, PorterDuff.Mode.SRC_IN)
         paint.colorFilter = iconFilter
         val offset = bitmap?.width?.div(2.0f)
         if (offset != null) {
             val offsetH = (radius - offset) + (offset * iconOffsetH)
             val offsetV = (radius - offset) + (offset * iconOffsetV)
-            canvas?.drawBitmap(bitmap, offsetH, offsetV, paint)
+            canvas?.drawBitmap(bitmap!!, offsetH, offsetV, paint)
         }
         paint.colorFilter = null
     }
