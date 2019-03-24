@@ -15,7 +15,7 @@ class CircleIconView(context: Context?, attrs: AttributeSet? = null) : View(cont
         private const val DEFAULT_BACKGROUND_COLOR = Color.TRANSPARENT
         private const val DEFAULT_BORDER_COLOR = Color.BLACK
         private const val DEFAULT_BORDER_RATIO = 0.05f
-        private const val DEFAULT_ICON_COLOR = Color.BLACK
+        private const val DEFAULT_ICON_COLOR = -1
         private const val DEFAULT_CLIPPING = true
         const val DEFAULT_ICON_RATIO = 0.53f
         const val DEFAULT_ICON_OFFSET = 0.0f
@@ -122,7 +122,7 @@ class CircleIconView(context: Context?, attrs: AttributeSet? = null) : View(cont
         if (offset != null) {
             val offsetH = (radius - offset) + (offset * iconOffsetH)
             val offsetV = (radius - offset) + (offset * iconOffsetV)
-            canvas?.drawBitmap(bitmap!!, offsetH, offsetV, paint)
+            canvas?.drawBitmap(bitmap!!, offsetH, offsetV, if (iconColor == -1) null else paint)
         }
         paint.colorFilter = null
     }
